@@ -32,8 +32,8 @@ def test_reduce_wallet
 end
 
 def test_sale
-  @pub.add_drink_to_stock(@drink)
-  @pub.add_drink_to_stock(@drink)
+  #@pub.add_drink_to_stock(@drink)
+  @pub.add_drink_to_stock(@drink, 2)
   @customer.sale(@drink, @pub, @customer)
   assert_equal(false, @pub.check_age(@customer2))
   assert_equal(true, @pub.check_age(@customer))
@@ -61,10 +61,7 @@ def test_over_alcohol_level
 end
 
 def test_sale_to_drunk
-  @pub.add_drink_to_stock(@drink)
-  @pub.add_drink_to_stock(@drink)
-  @pub.add_drink_to_stock(@drink)
-  @pub.add_drink_to_stock(@drink)
+  @pub.add_drink_to_stock(@drink, 4)
   @customer.sale(@drink, @pub, @customer)
   @customer.sale(@drink, @pub, @customer)
   @customer.sale(@drink, @pub, @customer)

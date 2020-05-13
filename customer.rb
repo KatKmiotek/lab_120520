@@ -27,7 +27,7 @@ def sale(drink, pub, customer)
     reduce_wallet(drink)
     drunkenness_level_increase(drink)
     pub.increase_till(drink)
-    pub.reduce_stock_count
+    pub.reduce_stock_count(drink)
   else
     return "No sale"
   end
