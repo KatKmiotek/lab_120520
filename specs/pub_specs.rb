@@ -10,6 +10,7 @@ class TestPub < MiniTest::Test
     @customer = Customer.new("Bob", 100, 20)
     @customer2 = Customer.new("Samantha", 20, 15)
     @drink = Drink.new("peroni", 2, 4)
+    @drink1 = Drink.new("Merlot", 4, 3)
     @pub = Pub.new("Blue Lagoon")
     @food = Food.new("chips", 2, 2)
   end
@@ -20,15 +21,16 @@ def test_stock_count
 end
 
 def test_add_drink_to_stock
-  @pub.add_drink_to_stock(@drink)
-  assert_equal(1, @pub.stock_count)
+  @pub.add_drink_to_stock(@drink, 10)
+  assert_equal(10, @pub.stock_count)
 end
 
 def test_reduce_stock_count
-  @pub.add_drink_to_stock(@drink)
-  @pub.add_drink_to_stock(@drink)
-  @pub.reduce_stock_count
-  assert_equal(1, @pub.stock_count)
+  @pub.add_drink_to_stock(@drink, 2)
+  @pub.add_drink_to_stock(@drink1, 4)
+
+  @pub.reduce_stock_count(@drink1)
+  assert_equal(5, @pub.stock_count)
 end
 
 def test_till_count

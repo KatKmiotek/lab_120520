@@ -12,16 +12,28 @@ end
 
 
 def stock_count
-  @drinks.count
+  total = 0
+  for drink in @drinks
+    total += drink[:amount]
+
+  end
+  return total
 end
 
 
-def add_drink_to_stock(drink)
-  @drinks.push(drink)
+def add_drink_to_stock(drink, amount)
+  @drinks.push({
+    drink: drink,
+    amount: amount
+    })
 end
 
-def reduce_stock_count
-  @drinks.pop
+def reduce_stock_count(drink)
+  for item in @drinks
+    if drink == item[:drink]
+      item[:amount] -=1
+    end
+  end
 end
 
 
