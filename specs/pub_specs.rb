@@ -3,6 +3,7 @@ require('minitest/reporters')
 require_relative('../pub')
 require_relative('../customer')
 require_relative('../drink')
+require_relative('../food')
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 class TestPub < MiniTest::Test
   def setup()
@@ -10,6 +11,7 @@ class TestPub < MiniTest::Test
     @customer2 = Customer.new("Samantha", 20, 15)
     @drink = Drink.new("peroni", 2, 4)
     @pub = Pub.new("Blue Lagoon")
+    @food = Food.new("chips", 2, 2)
   end
 
 
@@ -45,6 +47,8 @@ end
 def test_check_age_false
   assert_equal(false, @pub.check_age(@customer2))
 end
+
+
 
 
 

@@ -7,6 +7,7 @@ def initialize(name)
   @till = 0
   @drinks = []
 
+
 end
 
 
