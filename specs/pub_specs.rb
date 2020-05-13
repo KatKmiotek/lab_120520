@@ -51,7 +51,11 @@ def test_check_age_false
 end
 
 
-
+def test_total_stock_value
+  @pub.add_drink_to_stock(@drink, 5)
+  @pub.add_drink_to_stock(@drink1, 4)
+  assert_equal(26, @pub.total_stock_value)
+end
 
 
 

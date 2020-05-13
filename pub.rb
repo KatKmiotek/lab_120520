@@ -53,8 +53,15 @@ def check_age(customer)
   end
 end
 
+# ([name, price, alcohol], 1)
 
-
+def total_stock_value
+  total = 0
+  for item in @drinks
+    total += item[:amount] * item[:drink].price
+  end
+  return total
+end
 
 
 
